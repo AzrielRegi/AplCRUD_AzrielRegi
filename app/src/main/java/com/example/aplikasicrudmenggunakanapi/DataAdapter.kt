@@ -7,7 +7,7 @@ import androidx.appcompat.view.menu.MenuView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_data.view.*
 
-class DataAdapter (val data: List<DataItem>?, private val click: MyHolder.onClickItem) :
+class DataAdapter (val data: List<DataItem>?, private val click: onClickItem) :
 RecyclerView.Adapter<DataAdapter.MyHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_data, parent, false)
@@ -31,9 +31,10 @@ RecyclerView.Adapter<DataAdapter.MyHolder>() {
             itemView.tvPhone.text = get?.staffHandphone
             itemView.tvAddress.text = get?.staffAddress
         }
-        interface onClickItem{
-            fun clicked (item: DataItem?)
-            fun delete (item: DataItem?)
-        }
+
+    }
+    interface onClickItem{
+        fun clicked (item: DataItem?)
+        fun delete (item: DataItem?)
     }
 }
